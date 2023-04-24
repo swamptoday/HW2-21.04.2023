@@ -15,7 +15,6 @@ namespace HW2_21._04._2023
             Task_3();
             Console.WriteLine("Task 4: finding the index of the max value (if more than one, find the index of the first one and last one).");
             Task_4();
-
         }
 
         //Task 1: taking user's text input and finding the sum of digits in it, finding the max digit in text
