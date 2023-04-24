@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace HW2_21._04._2023
@@ -9,6 +9,8 @@ namespace HW2_21._04._2023
         {
             Console.WriteLine("Task 1: finding the sum of digits in user's input and finding the max digit.");
             Task_1();
+            Console.WriteLine("Task 2: finding the index of max value in text with probability of spaces before text starts.");
+            Task_2();
         }
 
         //take user's text input and finding the sum of digits in it, finding the max digit in text
@@ -40,6 +42,47 @@ namespace HW2_21._04._2023
             //outputing max value result
             Console.WriteLine($"Max digit: {max} \n");
 
+        }
+
+        // find the index of max value in text with probability of spaces before text starts
+        static void Task_2()
+        {
+            // defining max as int value
+            int max = int.MinValue;
+            int index = 0;
+            //defining text beginning as bool value to control whether it's beginning of the text, so if there are spaces after first non-space chararter - they will count as index
+            bool text_begin = false;
+            //taking user's input
+            Console.Write("Enter a text: ");
+            char[] input = Console.ReadLine().ToCharArray();
+            //running through each characther in text
+            foreach (char c in input)
+            {
+                // checking whether it's a space before text starts
+                if ((c == ' ') && (text_begin == false))
+                {
+                    // if so decremating index
+                    index--;
+                }
+                // checking whether it a text start
+                else if ((c != ' ') && (text_begin == false))
+                {
+                    // if so - declare that text has begun 
+                    text_begin = true;
+                }
+                //defining whether character is digit
+                if (char.IsDigit(c))
+                {
+                    //if so - converting int to char
+                    int digit = c - '0';
+                    //defining whether max value can be changed
+                    max = (digit > max) ? digit : max;
+                }
+            }
+            // find the first index that fits max found value
+            index += Array.IndexOf(input, Convert.ToChar(max.ToString()));
+            //outputing index result
+            Console.WriteLine($"Index of max digit: {index} \n");
         }
     }
 }
