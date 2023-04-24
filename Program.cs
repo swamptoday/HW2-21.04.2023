@@ -11,6 +11,8 @@ namespace HW2_21._04._2023
             Task_1();
             Console.WriteLine("Task 2: finding the index of max value in text with probability of spaces before text starts.");
             Task_2();
+            Console.WriteLine("Task 3: finding the amount of pages in the biggest book.");
+            Task_3();
         }
 
         //take user's text input and finding the sum of digits in it, finding the max digit in text
@@ -83,6 +85,24 @@ namespace HW2_21._04._2023
             index += Array.IndexOf(input, Convert.ToChar(max.ToString()));
             //outputing index result
             Console.WriteLine($"Index of max digit: {index} \n");
+        }
+
+        // find the amount of pages in the biggest book
+        static void Task_3()
+        {
+            // initializing a random with a seed based on the current time, so we have different arrays every time
+            Random rand = new Random();
+            // creating an array for amount of pages in 100 books
+            int[] pages = new int[100]; 
+
+            for (int i = 0; i < pages.Length; i++)
+            {
+                // generating random amount of pages for every book
+                pages[i] = rand.Next(50, 1001); 
+            }
+
+            //outputing max page result
+            Console.WriteLine($"Amount of the pages in the biggest book: {pages.Max()} \n");
         }
     }
 }
