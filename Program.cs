@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace HW2_21._04._2023
@@ -15,7 +15,7 @@ namespace HW2_21._04._2023
             Task_3();
         }
 
-        //Task 1: taking user's text input and finding the sum of digits in it, finding the max digit in text
+        //take user's text input and finding the sum of digits in it, finding the max digit in text
         static void Task_1()
         {
             // defining sum and max as int values
